@@ -12,8 +12,7 @@ export default function Pagination(){
         >
             <Box>
                 <strong>0</strong>
-                <strong> - </strong>
-                <strong>de </strong>
+                <strong> de </strong>
                 <strong>100</strong>
             </Box>
           <Stack direction='row'>
