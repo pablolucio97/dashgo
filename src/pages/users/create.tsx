@@ -12,6 +12,7 @@ import {
     Text
 
 } from '@chakra-ui/react'
+import Link from 'next/link'
 
 import Header from '../../components/Header'
 import Sidebar from '../../components/Sidebar'
@@ -40,7 +41,7 @@ export default function CreateUser() {
                         <SimpleGrid
                             minChildWidth='240px' spacing='8' w='100%'
                         >
-                        <Text p='0'>Nome</Text>
+                            <Text p='0'>Nome</Text>
                             <Input name='name' label='Nome completo' />
                             <Text>E-mail</Text>
                             <Input name='email' label='E-mail' type='email' />
@@ -57,7 +58,11 @@ export default function CreateUser() {
                     <Flex mt='8' justify='flex-end'>
                         <HStack spacing='4'>
                             <Button colorScheme='pink' border='none'>Salvar</Button>
-                            <Button colorScheme='whiteAlpha' border='none'>Cancelar</Button>
+                            <Link href='/users' passHref >
+                                <Button colorScheme='whiteAlpha' border='none'>
+                                    Cancelar
+                                </Button>
+                            </Link>
                         </HStack>
                     </Flex>
                 </Box>
