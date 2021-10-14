@@ -12,7 +12,8 @@ import {
     Tbody,
     Td,
     Checkbox,
-    Text
+    Text,
+    useBreakpointValue
 } from '@chakra-ui/react'
 import { RiAddLine, RiPencilLine } from 'react-icons/ri'
 
@@ -21,6 +22,12 @@ import Sidebar from '../../components/Sidebar'
 import Pagination from '../../components/Pagination'
 
 export default function UserList() {
+
+    const isWideScreen = useBreakpointValue({
+        base: false,
+        lg: true
+    })
+
     return (
         <Box>
             <Header />
@@ -30,7 +37,7 @@ export default function UserList() {
                     flex='1'
                     borderRadius={8}
                     bg='gray.800'
-                    p='8'
+                    p={['6', '8']}
                 >
                     <Flex
                         mb='8'
@@ -45,22 +52,22 @@ export default function UserList() {
                             colorScheme='pink'
                             leftIcon={<Icon as={RiAddLine} />}
                         >
-                            Criar novo
+                            {isWideScreen && 'Criar novo'} 
                         </Button>
                     </Flex>
                     <Table colorScheme='whiteAlpha'>
                         <Thead>
                             <Tr>
-                                <Th px='6' color='gray.300' width='8'>
+                                <Th px={['4', '4', '6']} color='gray.300' width='8'>
                                     <Checkbox colorScheme='pink' />
                                 </Th>
                                 <Th>Usuário</Th>
-                                <Th>Data de cadastro</Th>
+                                {isWideScreen && <Th>Data de cadastro</Th>}
                             </Tr>
                         </Thead>
                         <Tbody>
                             <Tr>
-                                <Td px='6'>
+                                <Td px={['4', '4', '6']}>
                                     <Checkbox colorScheme='pink' />
                                 </Td>
                                 <Td>
@@ -69,19 +76,7 @@ export default function UserList() {
                                         <Text fontSize='sm' color='gray.300'>pablolucio_@hotmail.com</Text>
                                     </Box>
                                 </Td>
-                                <Td>04 de Abril, 2021</Td>
-                                <Td>
-                                    <Button
-                                        as='a'
-                                        size='sm'
-                                        fontSize='small'
-                                        colorScheme='purple'
-                                        leftIcon={<Icon as={RiPencilLine} />}
-
-                                    >
-                                        Editar
-                                    </Button>
-                                </Td>
+                                {isWideScreen && <Td>04 de Abril, 2021</Td>}
                             </Tr>
                         </Tbody>
                     </Table>

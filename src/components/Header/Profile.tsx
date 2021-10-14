@@ -14,10 +14,10 @@ export default function Profile({ showProfileData }: ProfileProps) {
                     textAlign='right'
                 >
                     <Text>Pablo Silva</Text>
-                    <Text color='gray.300' mt='-4'>pablolucio_@hotmail.com</Text>
+                    <Text color='gray.300'>pablolucio_@hotmail.com</Text>
                 </Box>
             )}
-            <Avatar size='md' name='Pablo Lício' src='https://github.com/pablolucio97.png' />
+            <Avatar size='md' mr='3' name='Pablo Lício' src='https://github.com/pablolucio97.png' />
         </Flex>
     )
 }

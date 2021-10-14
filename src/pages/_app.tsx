@@ -6,7 +6,7 @@ import { SidebarDrawerProvider } from '../context/SidebarDrawerContext'
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <SidebarDrawerProvider>
-            <ChakraProvider resetCSS={false} theme={theme}>
+            <ChakraProvider  theme={theme}>
                 <Component {...pageProps} />
             </ChakraProvider>
         </SidebarDrawerProvider>

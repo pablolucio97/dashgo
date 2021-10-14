@@ -1,5 +1,5 @@
 import { useDisclosure, UseDisclosureReturn } from '@chakra-ui/hooks'
-import { useRouter } from 'next/dist/client/router'
+import { useRouter } from 'next/router'
 import { createContext, ReactNode, useContext, useEffect } from 'react'
 
 interface SidebarDrawerProps{

@@ -11,7 +11,7 @@ export default function Header() {
 
     const { onOpen } = useSidebarDrawer()
 
-    const isWideScreen = useBreakpointValue({
+       const isWideScreen = useBreakpointValue({
         base: false,
         lg: true
     })

@@ -8,7 +8,8 @@ import {
     SimpleGrid,
     VStack,
     HStack,
-    Button
+    Button,
+    Text
 
 } from '@chakra-ui/react'
 
@@ -25,7 +26,8 @@ export default function CreateUser() {
                     flex='1'
                     borderRadius={8}
                     bg='gray.800'
-                    p='8'
+                    p={['6', '8']}
+                    maxWidth={720}
                 >
                     <Heading
                         size='lg'
@@ -38,13 +40,17 @@ export default function CreateUser() {
                         <SimpleGrid
                             minChildWidth='240px' spacing='8' w='100%'
                         >
+                        <Text p='0'>Nome</Text>
                             <Input name='name' label='Nome completo' />
+                            <Text>E-mail</Text>
                             <Input name='email' label='E-mail' type='email' />
                         </SimpleGrid>
                         <SimpleGrid
                             minChildWidth='240px' spacing='8' w='100%'
                         >
+                            <Text>Senha</Text>
                             <Input name='password' label='Password' type='password' />
+                            <Text>Confirmação de senha</Text>
                             <Input name='password' label='Confirmar password' type='password' />
                         </SimpleGrid>
                     </VStack>
