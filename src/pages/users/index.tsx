@@ -16,48 +16,24 @@ import {
     useBreakpointValue,
     Spinner
 } from '@chakra-ui/react'
-import { RiAddLine, RiPencilLine } from 'react-icons/ri'
+import { RiAddLine } from 'react-icons/ri'
 
 import Header from '../../components/Header'
 import Sidebar from '../../components/Sidebar'
 import Pagination from '../../components/Pagination'
 import Link from 'next/link'
 import { useQuery } from 'react-query'
+import { api } from '../../services/api'
+import useUsers from '../../hooks/useUsers'
 
 export default function UserList() {
 
-    const { data, isLoading, error } = useQuery('users', async () => {
-        const response = await fetch('http://localhost:3000/api/users')
-        const data = await response.json()
-
-        const users = data.users.map(user => {
-            return {
-                id: user.id,
-                name: user.name,
-                email: user.email,
-                createdAt: new Date(user.createdAt).toLocaleDateString('pt-BR', {
-                    day: '2-digit',
-                    month: 'long',
-                    year: 'numeric'
-                }),
-            }
-        })
-
-        return users
-    },
-        {
-            staleTime: 5000
-        }
-    )
-
-    console.log(data)
+    const { data, isLoading, isFetching, error } = useUsers()
 
     const isWideScreen = useBreakpointValue({
         base: false,
         lg: true
     })
-
-
 
     return (
         <Box>
@@ -75,7 +51,9 @@ export default function UserList() {
                         justify='space-between'
                         align='center'
                     >
-                        <Heading size='lg' fontWeight='normal'>Usuários</Heading>
+                        <Heading size='lg' fontWeight='normal'>
+                            Usuários {!isLoading && isFetching && <Spinner size='sm' />}
+                        </Heading>
                         <Link href='/users/create' passHref>
                             <Button
                                 as='a'
@@ -108,7 +86,7 @@ export default function UserList() {
                                         {isWideScreen && <Th>Data de cadastro</Th>}
                                     </Tr>
                                 </Thead>
-                                <Tbody style={{ overflowY: 'scroll' }}>
+                                <Tbody>
                                     {data.map(user => (
                                         <Tr key={user.id}>
                                             <Td px={['4', '4', '6']}>
