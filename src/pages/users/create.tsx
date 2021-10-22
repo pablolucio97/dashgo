@@ -4,7 +4,6 @@ import {
     Flex,
     Heading,
     Divider,
-    Input,
     SimpleGrid,
     VStack,
     HStack,
@@ -19,6 +18,7 @@ import Header from '../../components/Header'
 import Sidebar from '../../components/Sidebar'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { Input } from '../../components/Form/Input'
 
 type CreateUserData = {
     name: string;
