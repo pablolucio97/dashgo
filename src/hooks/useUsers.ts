@@ -9,7 +9,7 @@ type User = {
 }
 
 const getUsers = async () : Promise<User[]> => {
-  const { data } = await api.get<User[]>("/users");
+  const { data } = await api.get<User[]>("users");
 
   //@ts-ignore
   const users = data.users.map((user) => {
