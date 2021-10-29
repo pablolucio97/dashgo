@@ -30,6 +30,6 @@ const getUsers = async () : Promise<User[]> => {
 
 export default function useUsers() {
   return useQuery("users", getUsers, {
-    staleTime: 5000,
+    staleTime: 1000 * 60 * 10,
   });
 }
